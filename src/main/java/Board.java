@@ -33,6 +33,13 @@ public class Board {
     }
   }
 
+  public boolean hasContestantWon(char symbol) {
+    if (isWinner(symbol)) {
+      return true;
+    }
+    return false;
+  }
+
   public char[][] current() {
     return board;
   }

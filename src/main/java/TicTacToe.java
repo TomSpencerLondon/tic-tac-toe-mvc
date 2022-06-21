@@ -27,13 +27,13 @@ public class TicTacToe {
 
 
   private static boolean isGameFinished(Board board) {
-    if (hasContestantWon(board, 'X')) {
+    if (board.hasContestantWon('X')) {
       printBoard(board.current());
       System.out.println("Player wins!");
       return true;
     }
 
-    if (hasContestantWon(board, 'O')) {
+    if (board.hasContestantWon('O')) {
       printBoard(board.current());
       System.out.println("Computer wins!");
       return true;
@@ -49,14 +49,6 @@ public class TicTacToe {
     printBoard(board.current());
     System.out.println("The game ended in a tie!");
     return true;
-  }
-
-
-  private static boolean hasContestantWon(Board board, char symbol) {
-    if (board.isWinner(symbol)) {
-      return true;
-    }
-    return false;
   }
 
 
