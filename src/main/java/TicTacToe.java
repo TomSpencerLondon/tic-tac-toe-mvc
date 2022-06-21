@@ -10,13 +10,13 @@ public class TicTacToe {
     printBoard(board.current());
 
     while (true) {
-      playerTurn(board.current(), scanner);
+      playerTurn(scanner);
       if (isGameFinished(board)){
         break;
       }
       printBoard(board.current());
 
-      computerTurn(board.current());
+      computerTurn();
       if (isGameFinished(board)){
         break;
       }
@@ -52,32 +52,32 @@ public class TicTacToe {
   }
 
 
-  private static void computerTurn(char[][] board) {
+  private static void computerTurn() {
     Random rand = new Random();
     int computerMove;
     while (true) {
       computerMove = rand.nextInt(9) + 1;
-      if (Board.isValidMove(Integer.toString(computerMove), board)) {
+      if (board.isValidMove(Integer.toString(computerMove))) {
         break;
       }
     }
     System.out.println("Computer chose " + computerMove);
-    Board.placeMove(board, Integer.toString(computerMove), 'O');
+    board.placeMove(Integer.toString(computerMove), 'O');
   }
 
 
-  private static void playerTurn(char[][] board, Scanner scanner) {
+  private static void playerTurn(Scanner scanner) {
     String userInput;
     while (true) {
       System.out.println("Where would you like to play? (1-9)");
       userInput = scanner.nextLine();
-      if (Board.isValidMove(userInput, board)){
+      if (board.isValidMove(userInput)){
         break;
       } else {
         System.out.println(userInput + " is not a valid move.");
       }
     }
-    Board.placeMove(board, userInput, 'X');
+    board.placeMove(userInput, 'X');
   }
 
 

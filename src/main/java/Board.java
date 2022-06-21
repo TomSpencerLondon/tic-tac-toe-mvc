@@ -8,7 +8,7 @@ public class Board {
         {' ', ' ', ' '}};
   }
 
-  static boolean isValidMove(String position, char[][] board) {
+  public boolean isValidMove(String position) {
     switch(position) {
       case "1":
         return (board[0][0] == ' ');
@@ -44,7 +44,7 @@ public class Board {
     return board;
   }
 
-  static void placeMove(char[][] board, String position, char symbol) {
+  public void placeMove(String position, char symbol) {
     switch(position) {
       case "1":
         board[0][0] = symbol;
